@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPath – Career Companion</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- -------------------- Welcome Page -------------------- -->
+<div id="welcomePage" class="page active">
+  <div class="welcome-hero">
+    <h1>Welcome to EduPath</h1>
+    <p>Your personal guide to careers, colleges, and skills</p>
+    <button onclick="showPage('authPage')">Get Started</button>
+  </div>
+</div>
+
+<!-- -------------------- Auth Page -------------------- -->
+<div id="authPage" class="page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Login / Signup</h2>
+      <input type="text" id="authName" placeholder="Full Name">
+      <input type="email" id="authEmail" placeholder="Email">
+      <select id="authRole">
+        <option value="">Select Role</option>
+        <option>Student</option>
+        <option>Mentor</option>
+        <option>Admin</option>
+      </select>
+      <button onclick="submitAuth()">Continue</button>
+      <div class="toggle-auth back-btn" onclick="showPage('welcomePage')">Back</div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------- Home Page -------------------- -->
+<div id="homePage" class="page">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-item" title="Profile"><i class="fa-solid fa-user"></i></div>
+    <div class="sidebar-item" title="AI Assistant" onclick="showPage('aiPage')"><i class="fa-solid fa-brain"></i></div>
+    <div class="sidebar-item" title="Reports" onclick="showPage('reportsPage')"><i class="fa-solid fa-chart-line"></i></div>
+    <div class="sidebar-item" title="Goals" onclick="showPage('goalsPage')"><i class="fa-solid fa-bullseye"></i></div>
+    <div class="sidebar-item" title="Mentorship" onclick="showPage('mentorshipPage')"><i class="fa-solid fa-handshake"></i></div>
+    <div class="sidebar-item" title="Assessment" onclick="showPage('assessmentPage')"><i class="fa-solid fa-file-alt"></i></div>
+    <div class="sidebar-item" title="Settings" onclick="showPage('settingsPage')"><i class="fa-solid fa-gear"></i></div>
+    <div class="sidebar-item" title="Toggle Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></div>
+  </aside>
+
+  <main class="home-body">
+    <div class="home-header">
+      <h1>EduPath</h1>
+      <p>Discover careers, prepare for interviews, and explore opportunities!</p>
+    </div>
+    <div class="cards-container">
+      <div class="glass-card" onclick="showPage('careerPage')">
+        <i class="fa-solid fa-graduation-cap fa-2x"></i>
+        <h3>Career Guidance</h3>
+        <p>Take the quiz and get AI-based career suggestions.</p>
+      </div>
+      <div class="glass-card" onclick="showPage('interviewPage')">
+        <i class="fa-solid fa-microphone fa-2x"></i>
+        <h3>Interview Prep</h3>
+        <p>Practice with simple, VR, daily & weekly tests.</p>
+      </div>
+      <div class="glass-card" onclick="showPage('competitionPage')">
+        <i class="fa-solid fa-trophy fa-2x"></i>
+        <h3>Competitions</h3>
+        <p>Find hackathons, scholarships, and internships.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- -------------------- Career Guidance -------------------- -->
+<div id="careerPage" class="page">
+  <div class="glass-card">
+    <h2>Career Guidance</h2>
+    <p>Answer a short quiz → AI suggests careers → choose a course → view colleges offering it → official PDFs.</p>
+    <button class="back-btn" onclick="showPage('homePage')">Back</button>
+  </div>
+</div>
+
+<!-- -------------------- Interview Prep -------------------- -->
+<div id="interviewPage" class="page">
+  <div class="glass-card">
+    <h2>Interview Prep</h2>
+    <div class="cards-container">
+      <div class="glass-card" onclick="alert('Practice voice interviews!')">Simple Mode</div>
+      <div class="glass-card" onclick="alert('Simulated VR interview!')">VR Mode</div>
+      <div class="glass-card" onclick="alert('Daily Tests: Aptitude + Coding')">Daily Tests</div>
+      <div class="glass-card" onclick="alert('Weekly Tests: Aptitude + Coding + HR')">Weekly Tests</div>
+    </div>
+    <button class="back-btn" onclick="showPage('homePage')">Back</button>
+  </div>
+</div>
+
+<!-- -------------------- Competitions -------------------- -->
+<div id="competitionPage" class="page">
+  <div class="glass-card">
+    <h2>Competitions & Opportunities</h2>
+    <p>Explore hackathons, internships, and scholarships tailored for you!</p>
+    <button class="back-btn" onclick="showPage('homePage')">Back</button>
+  </div>
+</div>
+
+<!-- -------------------- AI Assistant -------------------- -->
+<div id="aiPage" class="page">
+  <div class="glass-card">
+    <h2>AI Assistant</h2>
+    <p>Ask career-related questions and get instant guidance.</p>
+    <input id="chatInput" type="text" placeholder="Ask something...">
+    <button onclick="sendMessage()">Send</button>
+    <button class="back-btn" onclick="showPage('homePage')">Back</button>
+  </div>
+</div>
+
+<!-- -------------------- Settings -------------------- -->
+<div id="settingsPage" class="page">
+  <div class="glass-card">
+    <h2>Settings</h2>
+    <p>Edit profile, toggle theme, notifications, app info.</p>
+    <button onclick="toggleTheme()">Toggle Light/Dark</button>
+    <button class="back-btn" onclick="showPage('homePage')">Back</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

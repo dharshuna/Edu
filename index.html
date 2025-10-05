@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPath – Full Prototype</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Welcome Page -->
+<div id="welcomePage" class="page active">
+  <div class="welcome-hero">
+    <h1>Welcome to EduPath 🎓</h1>
+    <p>Your Career Companion – Explore Opportunities, Unlock Potential</p>
+    <button onclick="showPage('authPage')">Get Started</button>
+  </div>
+</div>
+
+<!-- Auth Page -->
+<div id="authPage" class="page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2 id="authTitle">Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <div class="error-msg" id="loginError"></div>
+      <button onclick="login()">Login</button>
+      <div class="toggle-auth" onclick="toggleAuth()">Don't have an account? Sign Up</div>
+      <div class="back-btn" onclick="showPage('welcomePage')">← Back</div>
+    </div>
+  </div>
+</div>
+
+<!-- Home Page -->
+<div id="homePage" class="page">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-item" title="Home" onclick="showPage('homePage')"><i class="fa-solid fa-house"></i></div>
+    <div class="sidebar-item" title="Career Guidance" onclick="showPage('careerPage')"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="sidebar-item" title="Interview Prep" onclick="showPage('interviewPage')"><i class="fa-solid fa-microphone"></i></div>
+    <div class="sidebar-item" title="Competitions" onclick="showPage('competitionPage')"><i class="fa-solid fa-trophy"></i></div>
+    <div class="sidebar-item" title="Reports" onclick="showPage('reports')"><i class="fa-solid fa-chart-line"></i></div>
+    <div class="sidebar-item" title="Goals" onclick="showPage('goals')"><i class="fa-solid fa-bullseye"></i></div>
+    <div class="sidebar-item" title="AI Assistant" onclick="showPage('aiAssistant')"><i class="fa-solid fa-brain"></i></div>
+    <div class="sidebar-item" title="Settings" onclick="showPage('settings')"><i class="fa-solid fa-gear"></i></div>
+    <div class="sidebar-item" title="Mentorship" onclick="showPage('mentorship')"><i class="fa-solid fa-handshake"></i></div>
+    <div class="sidebar-item" title="Assessment" onclick="showPage('assessment')"><i class="fa-solid fa-file-circle-check"></i></div>
+    <div class="sidebar-item" title="Toggle Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></div>
+  </aside>
+
+  <!-- Main Body -->
+  <main class="home-body">
+    <div class="home-header">
+      <h1>EduPath 🎓</h1>
+      <p>"Your career companion. Unlock your potential, explore opportunities, and achieve your dreams!"</p>
+    </div>
+
+    <div class="cards-container">
+      <div class="glass-card" onclick="showPage('careerPage')">
+        <i class="fa-solid fa-graduation-cap fa-2x"></i>
+        <h3>Career Guidance</h3>
+        <p>AI-driven guidance at your fingertips. Take quizzes and connect with mentors.</p>
+      </div>
+      <div class="glass-card" onclick="showPage('interviewPage')">
+        <i class="fa-solid fa-microphone fa-2x"></i>
+        <h3>Interview Prep</h3>
+        <p>Practice with mock interviews, aptitude & coding tests, and VR simulations.</p>
+      </div>
+      <div class="glass-card" onclick="showPage('competitionPage')">
+        <i class="fa-solid fa-trophy fa-2x"></i>
+        <h3>Competitions</h3>
+        <p>Find hackathons, scholarships, and internship opportunities.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Career Page -->
+<div id="careerPage" class="page">
+  <div class="glass-card">
+    <h2>Career Guidance</h2>
+    <p>Explore career quizzes, AI-based course-to-career mapping, and mentor suggestions.</p>
+    <ul>
+      <li>📌 Career Quiz with AI analysis</li>
+      <li>📌 Course-to-Career Roadmaps</li>
+      <li>📌 College & University Suggestions</li>
+      <li>📌 Mentorship Connections</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<!-- Interview Prep Page -->
+<div id="interviewPage" class="page">
+  <div class="glass-card">
+    <h2>Interview Prep</h2>
+    <p>Prepare for real interviews with structured practice.</p>
+    <ul>
+      <li>📝 Simple Mode: Voice assistant mock interviews</li>
+      <li>🕶️ VR Mode: Simulated virtual interview room</li>
+      <li>⏱️ Daily tests combining aptitude & coding</li>
+      <li>📆 Weekly full assessment (Aptitude + Coding + HR)</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<!-- Competitions Page -->
+<div id="competitionPage" class="page">
+  <div class="glass-card">
+    <h2>Competitions & Opportunities</h2>
+    <p>Participate in challenges to build your skills and resume.</p>
+    <ul>
+      <li>🏆 Hackathons</li>
+      <li>💰 Scholarships</li>
+      <li>💼 Internship Opportunities</li>
+      <li>🎯 Workshops & Skill Competitions</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<!-- Sidebar Pages -->
+<div id="reports" class="page">
+  <div class="glass-card">
+    <h2>Reports</h2>
+    <p>View your activity and progress reports.</p>
+    <ul>
+      <li>📊 Quiz Results</li>
+      <li>📝 Assessment Scores</li>
+      <li>📈 Career Progress Tracking</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<div id="goals" class="page">
+  <div class="glass-card">
+    <h2>🎯 Goals</h2>
+    <p>Set, track, and achieve your career goals.</p>
+    <ul>
+      <li>✅ Short-term Goals</li>
+      <li>✅ Medium-term Goals</li>
+      <li>✅ Long-term Aspirations</li>
+    </ul>
+    <div class="goal-progress"><div id="goalBar" style="width:60%;"></div></div>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<div id="aiAssistant" class="page">
+  <div class="glass-card">
+    <h2>💬 AI Assistant</h2>
+    <p>Ask career-related questions and get instant AI guidance.</p>
+    <input type="text" id="chatInput" placeholder="Type your question here...">
+    <button onclick="sendMessage()">Send</button>
+    <div id="chatLog" style="margin-top:15px;"></div>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<div id="settings" class="page">
+  <div class="glass-card">
+    <h2>⚙️ Settings</h2>
+    <p>Edit profile, toggle light/dark mode, and preferences.</p>
+    <button onclick="toggleTheme()">Toggle Light/Dark Mode</button>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<div id="mentorship" class="page">
+  <div class="glass-card">
+    <h2>🤝 Mentorship</h2>
+    <p>Connect with experienced mentors in your field.</p>
+    <ul>
+      <li>👩‍🏫 Find Mentors</li>
+      <li>💬 Request Guidance</li>
+      <li>📆 Schedule Sessions</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<div id="assessment" class="page">
+  <div class="glass-card">
+    <h2>📄 Assessment</h2>
+    <p>Take aptitude, coding, and soft skill assessments.</p>
+    <ul>
+      <li>📝 Daily Tests</li>
+      <li>📆 Weekly Tests</li>
+      <li>🏆 Track Your Progress</li>
+    </ul>
+    <button class="back-btn" onclick="showPage('homePage')">← Back</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
