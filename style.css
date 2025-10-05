@@ -1,134 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduPath – Career Companion</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* -------------------- Global -------------------- */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:linear-gradient(135deg,#FFDEE9,#B5FFFC);color:#222;min-height:100vh;transition:0.5s;font-size:18px;}
+.page{display:none;min-height:100vh;align-items:center;justify-content:flex-start;padding:20px;flex-direction:column;}
+.page.active{display:flex;}
+h1,h2,h3{margin-bottom:15px;}
+p{margin-bottom:10px;line-height:1.5;}
+ul{margin-left:20px;}
 
-<!-- -------------------- Welcome Page -------------------- -->
-<div id="welcomePage" class="page active">
-  <div class="welcome-hero">
-    <h1>Welcome to EduPath</h1>
-    <p>Your personal guide to careers, colleges, and skills</p>
-    <button onclick="showPage('authPage')">Get Started</button>
-  </div>
-</div>
+/* -------------------- Welcome -------------------- */
+.welcome-hero{text-align:center;margin-top:100px;}
+.welcome-hero h1{font-size:3em;margin-bottom:15px;}
+.welcome-hero p{font-size:1.5em;margin-bottom:20px;}
+.welcome-hero button{padding:15px 35px;border:none;border-radius:12px;background:rgba(255,255,255,0.25);backdrop-filter:blur(10px);color:#222;font-size:1.2em;cursor:pointer;transition:0.3s;}
+.welcome-hero button:hover{background:rgba(255,255,255,0.35);}
 
-<!-- -------------------- Auth Page -------------------- -->
-<div id="authPage" class="page">
-  <div class="auth-container">
-    <div class="auth-card">
-      <h2>Login / Signup</h2>
-      <input type="text" id="authName" placeholder="Full Name">
-      <input type="email" id="authEmail" placeholder="Email">
-      <select id="authRole">
-        <option value="">Select Role</option>
-        <option>Student</option>
-        <option>Mentor</option>
-        <option>Admin</option>
-      </select>
-      <button onclick="submitAuth()">Continue</button>
-      <div class="toggle-auth back-btn" onclick="showPage('welcomePage')">Back</div>
-    </div>
-  </div>
-</div>
+/* -------------------- Auth -------------------- */
+.auth-container{display:flex;justify-content:center;align-items:center;width:100%;margin-top:50px;}
+.auth-card{background:rgba(255,255,255,0.25);backdrop-filter:blur(15px);padding:40px;border-radius:20px;min-width:350px;text-align:center;box-shadow:0 12px 25px rgba(0,0,0,0.15);}
+.auth-card h2{font-size:2.4em;margin-bottom:20px;}
+.auth-card input, .auth-card select{width:100%;padding:14px;margin:10px 0;border-radius:12px;border:none;outline:none;font-size:1.1em;background:rgba(255,255,255,0.6);}
+.auth-card button{width:100%;padding:14px;margin-top:15px;border-radius:12px;border:none;background:linear-gradient(135deg,#7B2FF7,#00D4FF);color:#fff;font-size:1.1em;cursor:pointer;}
+.auth-card button:hover{background:linear-gradient(135deg,#00D4FF,#7B2FF7);}
+.toggle-auth,.back-btn{margin-top:10px;font-size:1em;color:#222;cursor:pointer;text-decoration:underline;}
 
-<!-- -------------------- Home Page -------------------- -->
-<div id="homePage" class="page">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-item" title="Profile"><i class="fa-solid fa-user"></i></div>
-    <div class="sidebar-item" title="AI Assistant" onclick="showPage('aiPage')"><i class="fa-solid fa-brain"></i></div>
-    <div class="sidebar-item" title="Reports" onclick="showPage('reportsPage')"><i class="fa-solid fa-chart-line"></i></div>
-    <div class="sidebar-item" title="Goals" onclick="showPage('goalsPage')"><i class="fa-solid fa-bullseye"></i></div>
-    <div class="sidebar-item" title="Mentorship" onclick="showPage('mentorshipPage')"><i class="fa-solid fa-handshake"></i></div>
-    <div class="sidebar-item" title="Assessment" onclick="showPage('assessmentPage')"><i class="fa-solid fa-file-alt"></i></div>
-    <div class="sidebar-item" title="Settings" onclick="showPage('settingsPage')"><i class="fa-solid fa-gear"></i></div>
-    <div class="sidebar-item" title="Toggle Theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></div>
-  </aside>
-
-  <main class="home-body">
-    <div class="home-header">
-      <h1>EduPath</h1>
-      <p>Discover careers, prepare for interviews, and explore opportunities!</p>
-    </div>
-    <div class="cards-container">
-      <div class="glass-card" onclick="showPage('careerPage')">
-        <i class="fa-solid fa-graduation-cap fa-2x"></i>
-        <h3>Career Guidance</h3>
-        <p>Take the quiz and get AI-based career suggestions.</p>
-      </div>
-      <div class="glass-card" onclick="showPage('interviewPage')">
-        <i class="fa-solid fa-microphone fa-2x"></i>
-        <h3>Interview Prep</h3>
-        <p>Practice with simple, VR, daily & weekly tests.</p>
-      </div>
-      <div class="glass-card" onclick="showPage('competitionPage')">
-        <i class="fa-solid fa-trophy fa-2x"></i>
-        <h3>Competitions</h3>
-        <p>Find hackathons, scholarships, and internships.</p>
-      </div>
-    </div>
-  </main>
-</div>
-
-<!-- -------------------- Career Guidance -------------------- -->
-<div id="careerPage" class="page">
-  <div class="glass-card">
-    <h2>Career Guidance</h2>
-    <p>Answer a short quiz → AI suggests careers → choose a course → view colleges offering it → official PDFs.</p>
-    <button class="back-btn" onclick="showPage('homePage')">Back</button>
-  </div>
-</div>
-
-<!-- -------------------- Interview Prep -------------------- -->
-<div id="interviewPage" class="page">
-  <div class="glass-card">
-    <h2>Interview Prep</h2>
-    <div class="cards-container">
-      <div class="glass-card" onclick="alert('Practice voice interviews!')">Simple Mode</div>
-      <div class="glass-card" onclick="alert('Simulated VR interview!')">VR Mode</div>
-      <div class="glass-card" onclick="alert('Daily Tests: Aptitude + Coding')">Daily Tests</div>
-      <div class="glass-card" onclick="alert('Weekly Tests: Aptitude + Coding + HR')">Weekly Tests</div>
-    </div>
-    <button class="back-btn" onclick="showPage('homePage')">Back</button>
-  </div>
-</div>
-
-<!-- -------------------- Competitions -------------------- -->
-<div id="competitionPage" class="page">
-  <div class="glass-card">
-    <h2>Competitions & Opportunities</h2>
-    <p>Explore hackathons, internships, and scholarships tailored for you!</p>
-    <button class="back-btn" onclick="showPage('homePage')">Back</button>
-  </div>
-</div>
-
-<!-- -------------------- AI Assistant -------------------- -->
-<div id="aiPage" class="page">
-  <div class="glass-card">
-    <h2>AI Assistant</h2>
-    <p>Ask career-related questions and get instant guidance.</p>
-    <input id="chatInput" type="text" placeholder="Ask something...">
-    <button onclick="sendMessage()">Send</button>
-    <button class="back-btn" onclick="showPage('homePage')">Back</button>
-  </div>
-</div>
-
-<!-- -------------------- Settings -------------------- -->
-<div id="settingsPage" class="page">
-  <div class="glass-card">
-    <h2>Settings</h2>
-    <p>Edit profile, toggle theme, notifications, app info.</p>
-    <button onclick="toggleTheme()">Toggle Light/Dark</button>
-    <button class="back-btn" onclick="showPage('homePage')">Back</button>
-  </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+/* -------------------- Home & Cards -------------------- */
+.sidebar{position:fixed;left:0;top:0;width:80px;height:100vh;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;padding-top:20px;}
+.sidebar-item{margin:20px 0;font-size:1.5em;cursor:pointer;transition:0.3s;color:#222;}
+.sidebar-item:hover{color:#7B2FF7;transform:scale(1.2);}
+.home-body{margin-left:100px;width:calc(100% - 100px);}
+.home-header{text-align:center;margin-bottom:30px;}
+.cards-container{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px;}
+.glass-card{flex:1 1 250px;background:rgba(255,255,255,0.25);backdrop-filter:blur(15px);padding:25px;border-radius:20px;text-align:center;transition:0.3s;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,0.1);}
+.glass-card:hover{transform:translateY(-10px);background:rgba(255,255,255,0.35);}
+button.back-btn{margin-top:15px;padding:8px 15px;border:none;border-radius:12px;background:rgba(255,255,255,0.25);backdrop-filter:blur(10px);cursor:pointer;transition:0.3s;}
+button.back-btn:hover{background:rgba(255,255,255,0.35);}
+input#chatInput{width:80%;padding:10px;margin-top:10px;margin-bottom:10px;border-radius:8px;border:none;outline:none;}
